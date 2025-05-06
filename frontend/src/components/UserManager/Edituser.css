@@ -1,0 +1,9 @@
+.container{
+    width: 100%;
+    justify-content: left;
+    text-align: left;
+}
+
+.form{
+    width: 50%;
+}

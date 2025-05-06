@@ -1,0 +1,84 @@
+.navbar {
+    background-color: #3867D6;
+    padding: 20px;
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h3 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.navbar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar nav ul li {
+    margin: 10px 0;
+}
+
+.navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    padding: 10px;
+}
+
+.navbar nav ul li a:hover {
+    background-color: #0F4A7D;
+}
+
+.navbar nav ul li a svg {
+    margin-right: 10px;
+}
+
+.navbar nav ul li a span {
+    flex-grow: 1;
+}
+
+
+.navbar-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.navbar-title {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.navbar-welcome {
+    background-color: rgba(255, 255, 255, 0.15);
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.navbar-username {
+    font-weight: 600;
+    color: #ffea00; 
+}
