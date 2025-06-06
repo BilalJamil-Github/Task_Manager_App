@@ -25,7 +25,7 @@ const Addnewtask = () => {
   const [employees, setEmployees] = useState([]);
 
   useEffect(()=>{
-      newRequest.post(`{API_URL}/fetchdatafortask`)
+      newRequest.post(`${API_URL}/fetchdatafortask`)
       .then((res)=>{
         const [categoryRes, employeeRes] = res.data;
         setCategories(categoryRes);
