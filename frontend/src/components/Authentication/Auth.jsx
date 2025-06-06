@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Auth() {
   const [logEmail, setlogEmail] = useState("");
@@ -15,7 +16,7 @@ function Auth() {
     console.log("Logging in with", logEmail, logPassword);
     
     try {
-      const res = await axios.post('http://localhost:8001/login', { logEmail, logPassword }, { withCredentials: true });
+      const res = await axios.post('{API_URL}/login', { logEmail, logPassword }, { withCredentials: true });
       console.log("Response:", res);
       if (res.data.token) {
         alert("Logged in successfully");
