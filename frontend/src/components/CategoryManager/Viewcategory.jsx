@@ -26,7 +26,7 @@ function Viewcategory({ updatecategory }) {
 
   useEffect(() => {
 
-    newRequest.get('/fetchCategory').then(res => {
+    newRequest.get('${API_URL}/fetchCategory').then(res => {
       setcategories(res.data);
     })
     
