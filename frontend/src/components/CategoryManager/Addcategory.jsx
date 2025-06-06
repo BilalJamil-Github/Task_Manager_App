@@ -8,7 +8,7 @@ const AddCategory = ({updatecategory , setupdatecategory}) => {
   const handleAddCategory = (e) => {
       e.preventDefault();
       setCategory("")
-     newRequest.post(`{API_URL}/addCategory` , {category} , {withCredentials: true})
+     newRequest.post(`${API_URL}/addCategory` , {category} , {withCredentials: true})
       .then((res)=>{console.log(res) ; setupdatecategory(!updatecategory)})
       .catch((err)=>{console.log(err)})
   
