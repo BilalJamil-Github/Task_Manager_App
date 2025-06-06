@@ -5,6 +5,7 @@ import axios from 'axios';
 import newRequest from '../../utils.js';
 import { useLocation } from 'react-router-dom';   
 import { useNavigate } from 'react-router-dom';  
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Viewcategory({ updatecategory }) { 
   const [categories, setcategories] = useState([]);
@@ -12,7 +13,7 @@ function Viewcategory({ updatecategory }) {
 
 
   const deleteCategory = (id) => {
-     newRequest.post('http://localhost:8001/deleteCategory', {id : id} ,{ withCredentials: true, baseURL: 'http://localhost:8001' })
+     newRequest.post(`${API_URL}/deleteCategory`, {id : id} ,{ withCredentials: true, baseURL: 'http://localhost:8001' })
       .then(
         (res)=> { 
           if(res.data.code){
