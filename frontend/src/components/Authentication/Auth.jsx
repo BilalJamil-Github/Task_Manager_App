@@ -16,7 +16,7 @@ function Auth() {
     console.log("Logging in with", logEmail, logPassword);
     
     try {
-      const res = await axios.post('{API_URL}/login', { logEmail, logPassword }, { withCredentials: true });
+      const res = await axios.post(`{API_URL}/login`, { logEmail, logPassword }, { withCredentials: true });
       console.log("Response:", res);
       if (res.data.token) {
         alert("Logged in successfully");
