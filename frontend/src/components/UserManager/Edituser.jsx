@@ -4,6 +4,7 @@ import './Edituser.css';
 import axios from 'axios';
 import Viewuser from './Viewuser';
 import newRequest from '../../utils';
+import { server } from '../../constants.js';
 
 export const MyContext = createContext();
 function EditUser({ employeeData, setEmployeeData , setrefresher , refresher}) {
@@ -56,7 +57,7 @@ function EditUser({ employeeData, setEmployeeData , setrefresher , refresher}) {
       });
   
       setEmployeeData(updatedEmployeeData);
-      newRequest.post('http://localhost:8001/updateEmployee', editUserData , {withCredentials: true})
+      newRequest.post(`${server}/updateEmployee`, editUserData , {withCredentials: true})
         .then((res) => setloading(false) , setupdates(!updates) , setrefresher(!refresher))
         .catch((err) => console.log("err = " , err))
         
