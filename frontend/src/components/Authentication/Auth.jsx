@@ -4,7 +4,7 @@ import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 //const API_URL = import.meta.env.VITE_API_URL;
-import { server } from '../constants.js';
+import { server } from '../../constants.js';
 
 function Auth() {
   const [logEmail, setlogEmail] = useState("");
