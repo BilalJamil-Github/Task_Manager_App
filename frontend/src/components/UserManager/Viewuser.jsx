@@ -5,13 +5,14 @@ import { FaTrash } from "@react-icons/all-files/fa/FaTrash";
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import newRequest from '../../utils';
+import { server } from '../../constants.js';
 
 function Viewuser({ setActiveTab, setEmployeeData, refresher , setrefresher }) { 
 
   const [data, setdata] = useState([]);
 
   useEffect(() => {
-    newRequest.post('http://localhost:8001/getEmployee')
+    newRequest.post(`${server}/getEmployee`)
       .then((res) => {
         setdata(res.data);
         setrefresher(!refresher)
@@ -23,7 +24,7 @@ function Viewuser({ setActiveTab, setEmployeeData, refresher , setrefresher }) {
 
    const fetchEmployee = (id) => {
      setActiveTab('edituser');
-     newRequest.post('http://localhost:8001/fetchEmployee' , {id})
+     newRequest.post(`${server}/fetchEmployee` , {id})
      .then((res) => {
       console.log("Total = ", res.data)
       setEmployeeData(res.data)
@@ -33,7 +34,7 @@ function Viewuser({ setActiveTab, setEmployeeData, refresher , setrefresher }) {
    }
 
    const deleteEmployee = (id) => {
-      newRequest.post('http://localhost:8001/deleteEmployee' , {id})
+      newRequest.post(`${server}/deleteEmployee` , {id})
    }
   
 
