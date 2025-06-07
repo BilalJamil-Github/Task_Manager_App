@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import newRequest from '../../utils';
+import { server } from '../../constants.js';
 
 const Edittask = ({ editId  , setupdateDone , updateDone}) => {
   const [formData, setFormData] = useState({
