@@ -5,6 +5,7 @@ import './Adduser.css';
 import Auth from '../Authentication/Auth';
 import axios from 'axios';
 import newRequest from '../../utils';
+import { server } from '../../constants.js';
 
 function Adduser() {
   const [userUpdate, setuserUpdate] = useState(false);
@@ -18,7 +19,7 @@ function Adduser() {
 
   const AddEmployee = () => {
     newRequest
-      .post('http://localhost:8001/addEmployee', userData, { withCredentials: true })
+      .post(`${server}/addEmployee`, userData, { withCredentials: true })
       .then((response) => {
         console.log(response.data);
         setuserUpdate(!userUpdate);
