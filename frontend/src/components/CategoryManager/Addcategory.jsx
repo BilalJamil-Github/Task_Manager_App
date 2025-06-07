@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Form, Button, Table } from "react-bootstrap";
 import newRequest from '../../utils.js';
-const API_URL = import.meta.env.VITE_API_URL;
+import { server } from '../../constants.js';
 
 const AddCategory = ({updatecategory , setupdatecategory}) => {
   const [category, setCategory] = useState("");
   const handleAddCategory = (e) => {
       e.preventDefault();
       setCategory("")
-     newRequest.post(`${API_URL}/addCategory` , {category} , {withCredentials: true})
+     newRequest.post(`${server}/addCategory` , {category} , {withCredentials: true})
       .then((res)=>{console.log(res) ; setupdatecategory(!updatecategory)})
       .catch((err)=>{console.log(err)})
   
