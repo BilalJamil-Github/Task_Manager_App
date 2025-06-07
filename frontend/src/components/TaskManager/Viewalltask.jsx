@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Table, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import newRequest from "../../utils";
+import { server } from '../../constants.js';
 
 function ViewAllTask({setKey , seteditId , sethistoryId , setupdateDone , updateDone}) {
 
@@ -60,7 +61,7 @@ function ViewAllTask({setKey , seteditId , sethistoryId , setupdateDone , update
   const deleteTask = async (deletevalue) => {
           console.log("delete Value = " , deletevalue)
           const id = deletevalue._id
-          newRequest.post('http://localhost:8001/deleteTask' , {id} ,{withCredentials: true})
+          newRequest.post(`${server}/deleteTask` , {id} ,{withCredentials: true})
           .then((res) => {
              if(res.data.code){
                  settasks((prevtask) => prevtask.filter(task => task._id !== id))
@@ -79,7 +80,7 @@ function ViewAllTask({setKey , seteditId , sethistoryId , setupdateDone , update
 
  
  useEffect(()=>{
-      newRequest.post('http://localhost:8001/fetchAllTask')
+      newRequest.post(`${server}/fetchAllTask`)
       .then((res)=>{
         console.log(res.data)
           settasks(res.data)
@@ -97,7 +98,7 @@ function ViewAllTask({setKey , seteditId , sethistoryId , setupdateDone , update
 
 
   useEffect(()=>{
-    newRequest.post('http://localhost:8001/fetchdatafortask')
+    newRequest.post(`${server}/fetchdatafortask`)
       .then((res)=>{
         const [categoryRes, employeeRes] = res.data;
         setCategories(categoryRes);
