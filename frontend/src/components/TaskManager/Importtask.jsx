@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import axios from "axios";
 import newRequest from "../../utils";
+import { server } from '../../constants.js';
 
 function ImportTask() {
    const [file , setfile] = useState();
@@ -12,7 +13,7 @@ function ImportTask() {
         formData.append("file" ,file)
 
        try {
-          await newRequest.post("http://localhost:8001/uploadExcel" , formData , {
+          await newRequest.post(`${server}/uploadExcel` , formData , {
             headers: { "Content-Type": "multipart/form-data" },
           }).then((res)=>{
                 console.log(res.data.message)
