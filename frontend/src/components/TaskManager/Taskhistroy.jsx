@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import newRequest from '../../utils';
+import { server } from '../../constants.js';
 
 function Taskhistory({ historyId, sethistoryId }) {
   const [data, setData] = useState([]);
@@ -7,7 +8,7 @@ function Taskhistory({ historyId, sethistoryId }) {
   useEffect(() => {
     if (!historyId) return;
 
-    newRequest.post('http://localhost:8001/taskhistory', { historyId })
+    newRequest.post(`${server}/taskhistory`, { historyId })
       .then((res) => {
         console.log(res)
         if (res.data) {
