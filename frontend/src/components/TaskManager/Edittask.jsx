@@ -26,7 +26,7 @@ const Edittask = ({ editId  , setupdateDone , updateDone}) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    newRequest.post('http://localhost:8001/fetchdatafortask')
+    newRequest.post(`${server}/fetchdatafortask`)
       .then((res) => {
         const [categoryRes, employeeRes] = res.data;
         setCategories(categoryRes);
@@ -39,7 +39,7 @@ const Edittask = ({ editId  , setupdateDone , updateDone}) => {
 
   useEffect(() => {
     if (editId) {
-      newRequest.post('http://localhost:8001/fetchtask', { editId }, { withCredentials: true })
+      newRequest.post(`${server}/fetchtask`, { editId }, { withCredentials: true })
         .then((res) => {
           const task = res.data.content[0];
           setFormData(task);
@@ -88,7 +88,7 @@ const Edittask = ({ editId  , setupdateDone , updateDone}) => {
 
   
   const updateMyTask = () => {
-       newRequest.post('http://localhost:8001/updateTask' , {formData} ,  {withCredentials: true})
+       newRequest.post(`${server}/updateTask` , {formData} ,  {withCredentials: true})
        .then((res)=>{
           console.log("your response" ,res)
           if(res.data.code){
