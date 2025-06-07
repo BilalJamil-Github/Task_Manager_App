@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import newRequest from '../../utils';
-const API_URL = import.meta.env.VITE_API_URL;
+import { server } from '../../constants.js';
 
 const Addnewtask = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ const Addnewtask = () => {
   const [employees, setEmployees] = useState([]);
 
   useEffect(()=>{
-      newRequest.post(`${API_URL}/fetchdatafortask`)
+      newRequest.post(`${server}/fetchdatafortask`)
       .then((res)=>{
         const [categoryRes, employeeRes] = res.data;
         setCategories(categoryRes);
@@ -62,7 +62,7 @@ const Addnewtask = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData); 
-    newRequest.post(`{API_URL}/addTask` , {formData} , {withCredentials:true})
+    newRequest.post(`{server}/addTask` , {formData} , {withCredentials:true})
     .then((res) => {
         console.log(res)
     })
